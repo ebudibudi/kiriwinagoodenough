@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	
+	<title>Lokuia Lodge</title>
+	
+	<style>
+		
+		#lokuia {
+			position:fixed; 
+			top:-50%; 
+			left:-50%; 
+			width:200%; 
+			height:200%;
+		}
+		#lokuia img {
+			position:absolute; 
+			top:0; 
+			left:0; 
+			right:0; 
+			bottom:0; 
+			margin:auto; 
+			min-width:50%;
+			min-height:50%;
+		}
+		
+		#page-wrap { position: relative; z-index: 2; width: 600px; margin: 50px auto; padding: 20px;
+		background: white; -moz-box-shadow: 0 0 20px black; -webkit-box-shadow: 0 0 20px black; box-shadow: 0 0 20px black;
+		background-color: #ffffff;
+
+               border: 1px solid black;
+
+               opacity: 0.8;
+
+               
+		p{ font: 15px/2 Georgia, Serif; margin: 0 0 30px 0; text-indent: 40px; }
+	</style>
+</head>
+
+<body>
+	
+	<div id="page-wrap">
+		
+		<img src="images/lokuialogo.png"
+		
+		<h1><b>Welcome to Lokuia Lodge</b></h1>
+		  <script type="text/javascript">
+		  var i = 0; 
+var image = new Array();   
+// LIST OF IMAGES
+image[0] = "images/lokuia1.jpg";
+image[1] = "images/lokuia2.jpg";
+image[2] = "images/lokuia3.jpg"; 
+image[3] = "images/lokuiapic2.jpg"; 
+image[4] = "images/lokuia4.jpg";
+image[5] = "images/kaibolajety.jpg";
+image[6] = "images/crab.jpg";
+image[7] = "images/lokuiabar.jpg";
+
+var k = image.length-1;    
+
+var caption = new Array(); 
+
+// LIST OF CAPT?ONS
+caption[0] = "Interior of Lokuia Lodge (Formerly known as Kiriwina Lodge).";
+caption[1] = "Lokuia Lodge interior from the reception";
+caption[2] = "Lokuia Lodge dinning area"; 
+caption[3] = "More Lokuia lodge pictures"; 
+caption[4] = "Lokuia Lodge rooms from the main corridor.";
+caption[5] = "P&O Cruise Ship carying houndreds of tourists arriving at the famous Kaibola beach on the Trobriand Islands.";
+caption[6] = "Cruise ship tourists enjoying the trobriand Islands crab delicacy";
+caption[7] = "Our local PNG's Cold beers in our Mangrove Bar";
+
+
+
+function swapImage(){ 
+var el = document.getElementById("mydiv"); 
+el.innerHTML=caption[i]; 
+var img= document.getElementById("slide"); 
+img.src= image[i];  
+if(i < k ) { i++;}  
+else  { i = 0; } 
+setTimeout("swapImage()",9000);  
+} 
+
+function addLoadEvent(func) { 
+var oldonload = window.onload; 
+if (typeof window.onload != 'function') { 
+window.onload = func; 
+} 
+else { 
+window.onload = function() { 
+if (oldonload) { 
+oldonload(); 
+} 
+func();}}}  
+addLoadEvent(function() { 
+swapImage(); });  
+</script> 
+
+<table style="border:3px solid white;background-color:#ffffff; padding-bottom: 10px; padding-top: 10px;
+padding-left: 40px; padding-right: 40px; margin-top:20px; box-shadow: inset -10px -10px 10px white;"> 
+<tr> 
+<td> 
+<img name="slide" id="slide" alt ="Our pictures" height="300" width="500" background-size = "cover"/> 
+</td> 
+</tr> 
+<tr> 
+<td align="center"style="font:15px georgia; color:black;"> 
+<div id ="mydiv"></div> 
+</tr> 
+</td> 
+</table>
+	       <h3><b>BACKGROUND INFORMATION</b></h3>
+		 
+		<p>FORMERLY KNOWN AS KIRIWINA LODGE
+                    INCOORPORATED WITH PNG INVESTMENT AUTHORITY AS LOKUIA LODGE LIMITED IN 2011
+                    100 % LOCALLY OWNED AND MANAGED</br>
+                    <b>MAIN CORE BUSINESS:</b> TOURISM AND HOSPITALITY
+                </p>
+    <h3>SERVICES PROVIDED INCLUDE:</h3>
+		<p color="red">
+	       <ul type="square">
+                  <li>Provides 20 room Accommodation for Tourists</li>
+                  <li>Bar and Kitchen</li>
+                  <li>Organise Group and Individual Tours on the mainland Kiriwina and surrounding islands</li>
+	          <li> Motorised Banana Boat Hires</li>
+	          <li>20  people capacity conference venue</li>
+	          <li>Organises Group Tour and Co-operate Functions</li>
+              </ul>
+       
+              </p>
+		<h3>PLEASE CONTACT US:</h3>
+		
+		<p color="red">
+	       <ul type="square">
+                  <li>Mobile Phones: 73415408 or 71265650</li>
+                  <li>or</li>
+                  <li>Email: lokuialodge@gmail.com</li>
+
+              </ul>
+		</p> 
+	
+	</div>
+	
+	<!-- At bottom, 'cause it's not really content -->
+	<div id="lokuia">
+		<img src="images/lokuiapic1.jpg" alt="">
+	</div>
+	
+</body>
+
+</html>

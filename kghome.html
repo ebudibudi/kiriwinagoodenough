@@ -1,0 +1,256 @@
+<html>
+   <head>
+   <title>kiriwina Goodenough</title>
+   <style type="text/css">
+  
+     header, section, aside,article, figure, figcaption,headertext{
+     display: block;}
+  body {
+      color: black;
+      background-color: #ffffff;
+      background-image: url("images/dark-wood.jpg");
+      background-position: center;
+      font-family: Georgia, times, serif;
+      line-height: 1.4em;
+      margin: 0px;}
+  .wrapper {
+           width: 1200px;
+           margin: 10px auto 10px auto;
+           border: 0px solid #000000;
+           background-color: #ffffff;}
+  #pics>img{width:350px;height: 280px;}
+       h1 {
+       text-indent: -9999px;
+       width: 940px;
+        height: 130px;
+       margin: 0px;}
+   section.courses {
+                 float: left;
+                 width: 900px;
+                 border-right: 1px solid #eeeeee;}
+   article {
+         clear: both;
+         width: 100%;}
+   hgroup {
+         margin-top:40px;}
+  figure {
+        float: left;
+        width: 290px;
+        height: 220px;
+        padding: 5px;
+        margin: 20px;
+       border: 1px solid #eeeeee;}
+  figcaption {
+           font-size: 90%;
+           text-align: left;
+           }
+  aside {
+       width: 230px;
+       float: left;
+       padding: 0px 0px 0px 20px;}
+  aside section a {
+                  display: block;
+                  padding: 10px;
+                  border-bottom: 1px solid #eeeeee;}
+  aside section a:hover {
+                       color: #985d6a;
+                       background-color: #efefef;}
+  a {
+      color: #de6581;
+      text-decoration: none;}
+
+   section.courses h1, h2, h3 {
+            font-weight: normal;
+            color: green;}
+   section.courses h2 {margin: 20px 0px 10px 410px;
+   padding: 0px;}
+   h3 {
+   margin: 0px 0px 10px 410px;
+  color: #de6581;}
+  p {margin-left: 410px;}
+  ul{margin-left:410px;}
+  
+  aside h2 {
+  padding: 10px 0px 10px 0px;
+  color: #de6581;}
+
+  </style>
+   </head>
+   <body>
+   <header>
+   <div id="wrapper">
+      
+  <script type="text/javascript"> 
+  var i = 0; 
+  var image = new Array();   
+  // LIST OF IMAGES
+image[0] = "images/sinaketapic1.jpg";
+image[1] = "images/sinaketapic2.jpg";
+image[2] = "images/losuiakids1.jpg";
+image[3] = "images/dda13_2020.jpg";
+image[4] = "images/goodenoughpres1.jpg";
+image[5] = "images/gaulim.jpg";
+image[6] = "images/welcome.JPG";  
+image[7] = "images/lauwela.jpg";
+image[8] = "images/kgteamfinal.jpg";
+image[9] = "images/mpvisit5.jpg";
+image[10] = "images/kitavajetty.jpg"; 
+image[11] = "images/kaibola.jpg"; 
+image[12] = "images/mpvisit4.jpg";
+image[13] = "images/bolubolu.jpg";
+image[14] = "images/watuluma.jpg";
+image[15] = "images/pulayasi-min.jpg";
+
+var k = image.length-1;    
+
+var caption = new Array(); 
+
+// LIST OF CAPT?ONS
+
+caption[0] = "Sinaketa Villagers welcoming the KGDDA delegate for the DDA meeting, November 06, 2020";
+caption[1] = "Sinaketa Elementary double classroom completed and ready for use, funded by KGDDA";
+caption[2] = "Kiriwina LLG President, Hon Tom Cameron with Losuia Elementary Kids orbserving the Rememberance Day on the 23th July 2020";
+caption[3] = "Giva village dancers during DDA meeting 1 2020.";
+caption[4] = "Alotau III loaded with Goodenoughs as part of the Alotau Districts' repatriation exercise, coordinated by Goodenough LLG President.";
+caption[5] = "KG Scholarships Coordinator with KG Gaulim Students during the recent visit.";
+caption[6] = "Welcoming the Local MP the Goodenough Way during the 3rd DDA meeting 2019.";
+caption[7] = "Lauwela Primary school students visit to the Parliament 2016.";
+caption[8] = "KG Scholarship committee members at Don Bosco Technical Institute.";
+caption[9] = "Aikawa united Church building funded by the Kiriwina-Goodenough District Development Authority KG DDA";
+caption[10] = "The jetty on Kitava Island, built at a cost of over K1.6million.Kitava had  benefitted a lot through tourism activities."; 
+caption[11] = "Kaibola Girls of Trobriand Islands in Traditional customs"; 
+caption[12] = "Tomuriesa on Goodenough Island during one of his electoral visits this year.";
+caption[13] = "Hon Douglas Tomuriesa handing over funding for St Maria, Watuluma Secondary School after addressing them.";
+caption[14] = "Workers putting finishing touches on Staff houses for Bolubolu Vocational School, Goodenough Island.";
+caption[15] = "Paramount Chief Pulayasi (5th from left) officiating the soccer finals on Kiriwina 2016.";
+
+
+
+function swapImage(){ 
+var el = document.getElementById("mydiv"); 
+el.innerHTML=caption[i]; 
+var img= document.getElementById("slide"); 
+img.src= image[i];  
+if(i < k ) { i++;}  
+else  { i = 0; } 
+setTimeout("swapImage()",9000);  
+} 
+
+function addLoadEvent(func) { 
+var oldonload = window.onload; 
+if (typeof window.onload != 'function') { 
+window.onload = func; 
+} 
+else { 
+window.onload = function() { 
+if (oldonload) { 
+oldonload(); 
+} 
+func();}}}  
+addLoadEvent(function() { 
+swapImage(); });  
+</script> 
+
+<table style="border:2px solid white;background-color:green; padding-bottom: 10px; padding-top: 10px;
+padding-left: 40px; padding-right: 40px; margin-top:20px; box-shadow: inset -10px -10px 10px white;"> 
+<tr> 
+<td> 
+<img name="slide" id="slide" alt ="Our pictures" height="320" width="700" background-size = "cover"/> 
+</td>
+<td><img  alt ="notice" height="320" width="388" background-size = "cover" src="images/notice2020.jpg"/> </td>
+</tr> 
+<tr> 
+<td align="center"style="font:15px georgia; color:white;"> 
+<div id ="mydiv"></div> 
+</tr> 
+</td> 
+</table>
+</header>
+<section class="courses">
+   
+    <!Start of article 2> 
+
+
+<article>
+   <figure>
+    <div id = "pics">
+    <img src="images/medic1.jpg" alt="Medic" />
+     <figcaption><i>Hon. Tomuriesa presenting a cheque of K100 000 to Dr. Kirby</i></figcaption>
+     </figure>
+     <hgroup>
+   <!--
+                           
+   -->
+<h2>Office of the Member for Kiriwina Goodenough continues to deliver services</h2>
+<h3>05th November 2020</h3>
+</hgroup><p>Office of the Member for Kiriwina Goodenough with consultation with the DDA have recently gave the financial support of K100 000 to
+            The Hands Of Rescue (THOR), an NGO based in Alotau, Milne Bay province to continue its service to the people of Kiriwina Goodnough.</p>
+     
+         <p>The picture on the far left: Hon Douglas Tomuriesa handing over K100,000
+            to Dr Barry Kirby (founder of THOR) to continue to provide flying doctor rescue & pre to post natal services
+            to the Kiriwina Goodenough communities, especially mothers.
+         </p>
+      <p>Tomuriesa said, despite the economic difficulties the country and the distric is facing, his entire office believes in serving his people
+         with whatever little the district has. He added, in the past, Kiriwina and Goodenough used to have very high maternal mortality rate.
+         This vital initiative his office engaged in with THOR will definetely reduce Maternal Mortality through the electorate. </p>
+
+</article>  
+   <!End of article 1>
+   <!start of line 2>
+    <article>
+   <figure>
+    <div id = "pics">
+    <img src="images/runway.jpg" alt=Vivigani" />
+     <figcaption><i>Vivigani Airstrip Runway, Goodenough Island</i></figcaption>
+     </figure>
+     <hgroup>
+   <!--
+                           
+   -->
+<h2>MP announced, Vivigani trial flight in the next couple of weeks among other major projects</h2>
+<h3>16th July 2020</h3>
+</hgroup><p>Local MP Hon. Douglas Tomuriesa has announced that the trial flight into Vivigani is being discussed with
+            APNG and the date will be confirmed by next week or two depending on the weather in the province.</p>
+     
+         <p>Other major projects announced are as follows:
+         <ul><li>Tenders for Kiriwina roads have been advertised in the News Papers this week at K5 million annually
+                 plus DSIP Counter funding.</li>
+              <li>Goodenough Hydro Project funding has been recieved and project signing will be in two weeks time at Bolubolu Station</li>
+              <li>Contruction of new Bolubolu Health Centre has begun.</li>
+              <li>Other development projects are soon to be announced</li>
+         </ul>
+         </p>
+      <p>Second batch Scholarship payments are also in progress for second part of the year.</p>
+
+</article> 
+ <!End of article 2>
+
+
+  </section>
+   <aside>
+   <section class="others">
+   <h2>Other Links</h2>
+
+   <a href="kgnewsfeed.html">District's News</a>
+   <a href="https://kiriwinagoodenough.blogspot.com">Our Blogs</a>
+   <a href="gallery.html">Gallery</a>
+   <a href="scholarships.html">KG Scholarships</a>
+   <a href="contact.html">Contact Us</a>
+   <a href="travels.html">Travels</a>
+ 
+   
+  </section>
+   <section class="contact-details">
+   <h2>Our Partners</h2>
+   <a href="http://www.parliament.gov.pg/index.php/tenth-parliament/bio/view/kiriwina-goodenough-district">Our Member of Parliament</a>
+   <a href="http://www.parliament.gov.pg/tenth-parliament/bio/view/governor-milne-bay">Provincial Gorvenor</a>
+   <a href="lokuia.html">Lokuia Lodge</a>
+   <a href="http://www.thehandsofrescue.org.au">The Hands of Rescue</a>
+   <a href="http://www.manolosaviation.aero">MANOLOS MEDIVAC</a>
+   </section>
+    
+   </aside>
+
+</div><!--End of .wrapper -->
+</body>
+</html>

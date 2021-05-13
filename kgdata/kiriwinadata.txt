@@ -1,0 +1,33 @@
+01,Dayagila,Hon. B. MOKARAWABU,98,274,318,592
+02,Kabwaku,Hon. Solomon PALUWA,180,599,538,1 057
+03,Kaibola,Hon. Bunemata TAORI,238,498,987,987
+04,Kuruvitu,Hon. David KEYALU,177,584,575,1 159
+05,Kwebwaga,Hon. Kuleleku TOMDIA,170,453,444,897
+06,Mwatawa,Hon. Modadeda MODAOSI,193,690,583,1 273
+07,Omarakana,Hon. Afred MWABWANA,242,845,831,1 676
+08,Okaikoda,Hon. Jasper Mwaveda,202,656,589,1 245
+09,Liluta,Hon. Lawrence YAWATA,340,1 087,1 060,2 147  
+10,Tubowada,Hon. Toidaya MWEYOGA,225,647,655,1302
+11,Koma,Hon. Yapeta TOSIU,244,971,958,1 929
+12,Kaduwaga,Hon. Amos MOWANA,265,761,735,1 496
+13,Simsimla,Hon. Persian GILBERT,74,245,240,487
+14,Wabutuma,Hon. Cedrick TASAKI,193,514,522,1 136
+15,Yalaka,Hon. Andrew MEKANAI,193,689,572,1 261
+16,Gumilababa,Hon. Gerry TOMAGARI,367,1 531,1 423,2 954
+17,Ilalima,Hon. Kwemwai MULAMOGA,174,587,579,1 166
+18,Kapwapu,Hon. Tony GIYOGAGA,142,397,390,787
+19,Kavataria,Hon. Gem MOYONA,209,879,864,1 743
+20,Mlosaida,Hon. Yaguma TOWOWODA,146,552,496,1 048
+21,Obulaku,Hon. Peter MORUWADOGA,170,522,498,1 020
+22,Oyuveyova Ward,Hon. Thomas MONAWELU,226,833,721,1 554
+23,Okaiboma,Hon. Moses KETOMA,303,866,889,1 455
+24,Tukwaukwa,Hon. KWEWAYA DABWAI,174,674,538,1 212
+25,Bwetalu,Hon. Elijah LAIYESA,234,825,812,1 637
+26,Sinaketa,Hon. Esther KATUMAPULA,242,705,697,1 402
+27,Vakuta,Hon. Petueli JAMES,252,553,532,1 085
+28,Loya,Hon. Charles Edward,171,487,480,967
+29,Kumwageya,Hon. Mwawaga TAUSIYA,135,491,487,978
+30,Lalela,Hon. Cedrick Uriupa,290,621,615,1 236
+31,Okaburura,Hon.Tobwakira DIKUBUI,326,1 015,812,1 827
+32,Kuyawa,Hon. Mlakaba BOYAMA, 128,362,293,655
+33,Yalumgwa,Hon. Camillus MKWESIPU,289,1 007,988,1 995

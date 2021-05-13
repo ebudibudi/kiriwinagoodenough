@@ -1,0 +1,405 @@
+// A => An Introduction to the Application
+
+- A simple blog application, based on php will be developed and will contain a series of posts.
+- The blog will provide users with the ability to read the latest uploaded posts, to edit
+  existing posts, and to delete posts if they wish to.
+
+- NOTE: I'm using bootstrap.css, bootstrap.js and jquery.js to style the blog and add interactive
+  		features to application. This is not an important component of this practical - what's important
+  		are the CRUD operations, and learning how to work with a mysql database and how to connect
+  		with one using the mysqli extension in PHP. Focus on creating the blog functionalities, and
+  		not on the look and feel of the application; that can be done afterwards.
+
+  ----------------------------------------------------
+
+
+// 01 => Database: MySQL Design
+
+- We will use the MySQL relational database to store the blog posts in.
+- Our database will just contain one table, which we will call "posts". Our database itself will
+  be named "phpblog".
+
+# INSTRUCTIONS: DATABASE CREATION
+
+1. Access phpmyadmin to create database and table, using the following address:
+   "localhost/phpmyadmin"
+
+2. If you're presented with a login form, the default credentials are as follows:
+   Username: root
+   Password: (none) - The root password is usually empty, so don't type anything in the password field.
+                      Just type in the root username and hit enter.
+
+   (Refer to "1 - PHPMyAdmin Login" Screenshot)
+
+3. Click on the "Databases" tab/link, which is located on the main navigation bar of phpmyadmin, to create
+   a new database. In the "Create database" section, type in "phpblog" as the database name, and click on
+   the "create" button.
+
+   (Refer to "2 - Create Database" Screenshot)
+
+4. phpmyadmin will automatically take you into the database view, where you can now start creating your
+   database tables. The blog application is very simple, therefore, it will only contain one table,
+   which we will call "posts". In the inputs provided for the "name" and "number of columns", type in
+   the following and click on the "Go" button:
+
+   Name: posts
+   Number of columns: 5
+
+   (Refer to "3 - Create Table" Screenshot)
+
+5. You will now be presented with the detailed table view, where you will have to enter the column
+   details of the "posts" table. Add the following column details and click on the "Save" button once
+   you're done:
+
+   a)	Name: id
+   		Type: INT
+   		A_I: Check
+
+   b)	Name: title
+   		Type: VARCHAR
+   		Length/Values: 255
+
+   c)	Name: body
+   		Type: TEXT
+
+   d)	Name: author
+   		Type: VARCHAR
+   		Length/Values: 255
+
+   e) 	Name: created_at
+   		Type: TIMESTAMP
+   		Default: CURRENT_TIMESTAMP
+
+   (Refer to "4 - Add Table Columns" Screenshot)
+   (Refer to "5 - Table and Columns Successfully Created" Screenshot once table columns have created)
+
+6. Once the "posts" table columns have been successfully created, access the "Insert" Tab/Link on the
+   top navigation menu of phpmyadmin to begin inserting some posts into the table. Add as many posts
+   as you want, making sure to include the title, the body, and the author - don't enter any
+   values for the "id" and the "created_at" columns, those will be added automatically when you creat
+   your posts.
+
+   (Refer to "6 - Add Data (List of Posts)" Screenshot)
+
+  ----------------------------------------------------
+
+
+// 02 => Create Application File Structure
+
+# INSTRUCTIONS: BLOG APP FILE STRUCTURE
+
+- Create the following file structure for the blog application in the "lab_practicals" folder
+  located inside the wamp server:
+
+  Folder: 	website5 (folder)
+  				config (sub-folder)
+  					db.php (file)
+  					config.php (file)
+  				inc (sub-folder)
+  					header.php (file)
+  					footer.php (file)
+  					navbar.php (file)
+  				index.php (file)
+  				post.php (file)
+  				addpost.php (file)
+  				editpost.php (file)
+
+  (Refer to "8 - File Structure" Screenshot)
+  (Refer to "9 - Config Subfolder" Screenshot)
+  (Refer to "10 - Inc Subfolder" Screenshot)
+
+  ----------------------------------------------------
+
+
+// 03 => Connecting to the Database Using PHP
+
+- There are various extensions in PHP that are used to connect to databases. The two most common
+  are MYSQLI (MySQL Improved) and PDO (PHP Data Object).
+- The blog application will use the MYSQLI Extensions to connect to the mysql database.
+- Keep in mind that, the MYSQLI Extension is used primarly in PHP to connect specifically to
+  a mysql database, and not any other. In order to work with other database, both relational
+  and non-relational in PHP, the PDO Extensions must be used. Furthermore, the PDO Extension
+  is recommended and preferred over the MYSQLI Extensions, as it is more secured, lightweight
+  and current.
+
+# INSTRUCTIONS: DATABASE CONNECTION USING MYSQLI
+
+- Open the "config/config.php" file and define the following constants that will be used to connect
+  to the mysql database:
+  
+  define("DB_HOST", "localhost");
+  define("DB_USER", "root");
+  define("DB_PASS", "");
+  define("DB_NAME", "phpblog");
+
+- Open the "config/db.php" file and code the database connection by adding the following code:
+
+  $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+  if(mysqli_connect_errno()) {
+		echo "Failed to connect to MySQL";
+  }
+
+- Open the "index.php" file and require both configurations file as follows:
+
+  require "config/config.php";
+  require "config/db.php";
+
+  Access the "index.php" file in your browser to test if the database connection has been estbalished and is working. If the browser displays an empty page, then the database connection is working. Otherwise,
+  if there's an error, then identify what the error is, and what line the error is from, and try to fix it.
+
+  ----------------------------------------------------
+
+
+// 04 => Fetching/Retrieving the List of Registered Posts in MySQL (READ OPERATION - R)
+
+- Fetch/retrieve the list of registered posts in the mysql database using SQL and
+  PHP (MYSQLI Extension).
+- The posts will be fetched from the database and stored in an associative array.
+- The fetched posts will then be outputted onto the browser using a foreach loop and formatted
+  in HTML.
+
+# INSTRUCTIONS: FETCH LIST OF POSTS IN DATABASE
+
+- Still in the "index.php" file, fetch/retrieve all posts registered in the database by adding the
+  following code:
+
+  $query = "SELECT * FROM posts"; // Using SQL to select all posts
+  $result = mysqli_query($conn, $query); // Connecting to the database and passing in the query
+  // Fetch all the posts, and store them in an associative array.
+  $posts = mysqli_fetch_all($result, MYSQLI_ASSOC); 
+  mysqli_free_result($result); // Free the results
+  mysqli_close($conn); // Close the database connection
+
+- Below the <?php ?> tag, still within the "index.php" file, add a basic HTML skeleton, and use
+  a foreach loop to loop through the fetched posts and output the following post information:
+
+  1. Title
+  2. Date Created
+  3. Author
+  4. Body/Post
+
+  *NOTE: Instead of having the HTML head template and footer template coded in the "index.php" file,
+  		 and having to repeat the same set of code in other .php files, simply code the HTML head and
+  		 the HTML footer tags into the "inc/header.php" and "inc/footer.php" include files
+  		 respectively. Then, include each of these files in the "index.php" file, and other .php files
+  		 that require them.
+  
+  Each post should have a read more link that enables a visitor to access each post, as shown below:
+
+  	<a href="post.php?id=<?php echo $post['id']; ?>">Read more</a>
+
+  The read more link is referencing a separate "post.php" file, and the specific post id to view. In
+  order for this link to work, the referenced "post.php" file must be coded to retrieve that specific
+  post and display it to the visitor.
+
+  ----------------------------------------------------
+
+
+// 05 => Retrieving Individual Posts (READ OPERATION - R)
+
+- Each post should be accessible by visitors through a "read more" link. The link should call
+  the "post.php" file, with the id value of the post appended as a query string to the URL.
+
+# INSTRUCTIONS: FETCH AN INDIVIDUAL POST FROM THE DATABASE
+
+- Open the "post.php" file and add the following PHP code:
+
+  require("config/config.php");
+  require("config/db.php");
+
+  // Get ID
+  $id = mysqli_real_escape_string($conn, $_GET["id"]);
+
+  // Create query
+  $query = "SELECT * FROM posts WHERE id = " . $id;
+
+  // Get result
+  $result = mysqli_query($conn, $query);
+
+  // Fetch data
+  $post = mysqli_fetch_assoc($result);
+
+  // Free the result
+  mysqli_free_result($result);
+
+  // Close connection
+  mysqli_close($conn);
+  
+- Below the <?php ?> tag, still within the "post.php" file, add a basic HTML skeleton, and output
+  the following post information:
+
+  1. Title
+  2. Date Created
+  3. Author
+  4. Body/Post
+
+  Also, add a "back" button/link that provides the visitor with the option to return back to the main
+  application page "index.php".
+
+  (The resulting page should like this "12 - Detailed Post View" Screenshot)
+
+  ----------------------------------------------------
+
+
+// 06 => Add New Posts to the Blog (CREATE OPERATION - C)
+
+- The blog application should provide the option to add/create new posts dyanmically using a
+  form interface. A separate PHP file and script will take care of that - the "addpost.php" file.
+
+# INSTRUCTIONS: ADD/CREATE NEW POSTS
+
+- Open the "addpost.php" file and add the require statements for the two configuration files -
+  "config.php" and "db.php".
+
+- Below the <?php ?> tag in the "addpost.php" file, code the following:
+
+  1. Title the page "Add Posts" with a H1 Tag
+  2. Add a form with the following input fields:
+  		- Title
+  		- Author
+  		- Body/Post
+  		- Submit
+
+  	*NOTE: The form will use a POST Method to submit data to the server/database, and will be
+  		   processed by the same file "addpost.php".
+
+- Going back to the <?php ?> section above the "addpost.php" file - create an if statement that
+  checks if the form has been submitted. If the form was submitted, the title, author and body
+  values should be captured using the mysqli_real_escape_string() function.
+
+  *NOTE: The mysqli_real_escape_string(database_connection, value) function accepts two parameters:
+   		 The database connection and the value to clean/strip. This function ensures that before
+   		 data is sent to the server and stored in the database, it's stripped of any unwanted and
+   		 malicious code.
+
+- Once the input values have been captured, create a query that adds/inserts the submitted values
+  into the database. Then check to ensure that the query was successfully executed and submitted - if
+  it was, the visitor should be redirected back to the home page, "index.php". - If it was not,
+  echo the error out.
+
+  // Create query
+  $query = "INSERT INTO posts(title, author, body) VALUES('$title', '$author', '$body')"; 
+
+  if(mysqli_query($conn, $query)) {
+	  header("Location: ./");
+  } else {
+	  echo "Error: " . $mysqli_error($conn);
+  }
+
+  (The resulting page should like this "14 - Add New Post" Screenshot)
+
+  ----------------------------------------------------
+
+
+// 07 => Edit Existing Posts (UPDATE OPERATION - U)
+
+- Visitors should be able to edit/update existing blog posts dyanmically using a
+  form interface. A separate PHP file and script will take care of that - the "editpost.php" file.
+
+# INSTRUCTIONS: EDIT EXISTING POSTS
+
+- Copy all the code in the "addpost.php" file and paste everything in the "editpost.php" file.
+
+- Delete the query statement, and replace it with the following UPDATE SQL QUERY:
+
+  // Create query
+  $query = "UPDATE posts SET
+	  title = '$title',
+	  author = '$author',
+	  body = '$body'
+  WHERE id = $update_id";
+
+- Add the following code in the "value" attribute for the title and author input fields:
+  
+  1. value="<?php echo $post['title']; ?>"
+  2. value="<?php echo $post['author']; ?>"
+
+  For the textarea input, add the following echo statement within the opening and closing
+  textarea tags:
+
+  3. <?php echo $post['body'];
+
+  Add a hidden input field with the following input attributes and their respective values
+  before the submit input:
+
+  4. type = "hidden"
+  5. name = "update_id"
+  6. value = "<?php echo $post['id']; ?>"
+
+  Finally, update the value attribute of the submit input to "Edit Post".
+
+- Back to the <?php ?> tag, still within the "editpost.php" file, add the following SELECT SQL
+  QUERY below the initial if statement:
+  
+  $id = mysqli_real_escape_string($conn, $_GET["id"]); // Get ID
+  $query = "SELECT * FROM posts WHERE id = " . $id; // Create query
+  $result = mysqli_query($conn, $query); // Get result
+  $post = mysqli_fetch_assoc($result); // Fetch data
+  mysqli_free_result($result); // Free the result
+  mysqli_close($conn); // Close connection
+
+  (The resulting page should like this "13 - Edit Post View" Screenshot)
+
+  ----------------------------------------------------
+
+
+// 08 => Delete Individual Posts (DELETE OPERATION - D)
+
+- The application should enable visitors to delete individual posts.
+
+# INSTRUCTIONS: DELETE EXISTING INDIVIDUAL POSTS
+
+- Open the "post.php" file and add the following form before the "edit" link:
+
+  <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+		<input type="hidden" name="delete_id" value="<?php echo $post['id']; ?>">
+		<input type="submit" name="delete" value="Delete">
+  </form>
+
+- Add the following "delete" processing script in the <?php ?> section, right after the require
+  (configuration) statements:
+
+  // Check if the form has been submitted
+  if(isset($_POST["delete"])) {
+	  // Get form data
+	  $delete_id = mysqli_real_escape_string($conn, $_POST["delete_id"]);
+	  
+	  $query = "DELETE FROM posts WHERE id = " . $delete_id; // Create query
+
+	  if(mysqli_query($conn, $query)) {
+		  header("Location: ./");
+	  } else {
+		  echo "Error: " . $mysqli_error($conn);
+	  }
+  }
+
+  The above script will check if the delete button was clicked, and if so the post id in view will
+  be retrieved and saved in the $detele_id variable. The SQL DELETE QUERY is executed afterwards
+  where the $delete_id variable holding the id of the post to be deleted, is passed in. The if
+  statement then checks if the query was successfully executed, and if so, redirects the visitor
+  back to the home page, "index.php" - Otherwise, the error is outputted.
+
+  ----------------------------------------------------
+
+
+// B => Conclusion:
+
+- The above project is a simple blog application that can Create, Read, Update and Delete Posts
+  (CRUD Operators).
+
+- After building this simple application using PHP and MySQL, students should now know how to
+  accomplish the following:
+
+  1. Create a file/folder structure for a practical application.
+  2. Create a mysql database, table and table columns.
+  3. Register data into a mysql table.
+  4. Connect to a mysql database in PHP using the mysqli extension.
+  5. Create configuration, include, and template files.
+  6. Retrieve data from a mysql database (Read data).
+  7. Add data to a mysql database (Create data).
+  8. Edit data dynamically in a mysql database (Update data).
+  9. Delete data from a mysql database (Delete data).
+  10. Use and implement the GET and POST HTTP Request Methods, along with QUERY STRINGS.
+  11. Working with HTML forms.
+

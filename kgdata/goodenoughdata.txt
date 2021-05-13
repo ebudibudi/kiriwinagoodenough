@@ -1,0 +1,28 @@
+01,Waibula,Hon. George NATUWABAYA,60,167,137,304
+02,Ufa ufa,Hon. Jack BUNALEYA,240,683,547,1 230
+03,Watuluma South,Hon. Roy TULUKOYO,233,394,391,785
+04,Watuluma North,Hon. Daniel NEMIYANEGA,106,322,288,610
+05,Idakamenai,Hon. Randol YABOHIWA,207,496,470,966
+06,Ulutuya,Hon. Anthony NIDULA,258,609,567,1 176
+07,Wakonai,Hon. Tolelena FA'AFO,163,317,329,646
+08,Vivigani,Hon. Frank KAUVA,266,571,540,1 111
+09,Eweli,Hon. Noel ANABUWAKE,209,422,419,841
+10,Kalauna,Hon. Jeffery KAUNAYA,249,571,559,1 130
+11,Belebele,Hon. Manoa NOAH,201,474,415,889
+12,Mataita East,Hon. Taola LEGIA,97,253,217,470
+13,Mataita West,Hon. Patrina AWAIWAYA,338,749,727,1 476
+14,Faia va,Hon.Bobby LOLOWANA,369,696,626,1 322
+15,Ufu'ufu,Hon.Steven DILO,326,751,687,1 438
+16,Bwaidoga East,Hon.Newa HUBERT,361,796,705,1 501
+17,Bwaidoga West,Hon. Stanley NATHANIEL,186,395,389,784
+18,Wagifa,Hon. Wagi ALAWANA,298,675,635,1 310
+19,Abolu,Hon.Jimmy MIYOLUNA,267,585,545,1 130
+20,Kilia,Hon.David LUBOIVA,351,793,712,1 505
+21,Lauwela,Hon.Alphones KULEBA,297,659,611,1 270
+22,Awale,Hon.Emonie YADIMOU,124,299,285,584
+23,Utalo,Hon.Albert FOGAUNA,217,547,496, 1 043
+24,Diodio,Hon.Warupi SILOBA,283,713,623,1 336
+25,Yauyaula,Hon.Abraham WAIKAMALI,65,209,185,394
+26,Awaya/Bolubolu,Thomas REGINALD,131,311,281,592
+27,Ibwama,Hon.Dinani ULUWA,127,302,282,584
+28,Kalimtabutabu,Hon.Elijah WAHIYAUNA,175,400,368,768
